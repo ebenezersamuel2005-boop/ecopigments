@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Eco Pigments — Natural Food Colors</title>
+
+<style>
+:root{
+  --bg:#fdf2f8;
+  --card:#ecfeff;
+  --accent:#86efac;
+  --accent-2:#c4a484;
+  --accent-3:#fda4af;
+  --text:#3f3f46;
+  --muted:#6b7280;
+  --radius:16px;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui;
+  background:linear-gradient(180deg,#fdf2f8,#ecfeff);
+  color:var(--text);
+}
+
+.container{max-width:1100px;margin:0 auto;padding:28px}
+
+header{
+  display:flex;justify-content:space-between;align-items:center;
+}
+
+.logo{
+  width:48px;height:48px;border-radius:12px;
+  background:linear-gradient(135deg,#86efac,#fda4af,#c4a484);
+  display:grid;place-items:center;color:white;font-weight:bold;
+}
+
+nav a{
+  margin-left:14px;text-decoration:none;color:var(--muted);
+  font-weight:600;
+}
+
+.hero{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:20px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:22px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+h1,h2,h3{margin-top:0}
+.sub{color:var(--muted)}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:20px;
+}
+
+.product{
+  background:#f8fafc;
+  padding:16px;
+  border-radius:14px;
+  text-align:center;
+}
+
+.swatch{
+  width:80px;height:80px;border-radius:50%;
+  margin:0 auto 10px;
+}
+
+.red{background:#fda4af}
+.green{background:#86efac}
+.brown{background:#c4a484}
+
+.price{font-weight:800;margin-top:6px;color:var(--accent)}
+
+.mixer{margin-top:20px}
+
+.slider-row{
+  display:grid;
+  grid-template-columns:90px 1fr 60px;
+  align-items:center;
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.result-box{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:1fr 150px;
+  gap:12px;
+  align-items:center;
+}
+
+.result-color{
+  width:150px;height:150px;
+  border-radius:16px;
+  border:2px solid #cbd5e1;
+}
+
+input,textarea{
+  padding:10px;border-radius:20px;border:1px solid #94a3b8;
+}
+button{
+  padding:12px;border-radius:12px;
+  background:linear-gradient(90deg,#86efac,#c4a484,#fda4af);
+  font-weight:800;border:none;cursor:pointer;color:white;
+}
+
+.feature-list li{margin-bottom:8px}
+
+footer{
+  margin-top:30px;text-align:center;color:var(--muted)
+}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .products{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <div style="display:flex;align-items:center;gap:10px">
+    <div class="logo">E</div>
+    <b>Eco Pigments</b>
+  </div>
+  <nav>
+    <a href="#products">Products</a>
+    <a href="#mixer">Mixer</a>
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+
+<!-- PRODUCTS -->
+<div class="card" id="products">
+<h1>Eco Pigments — Natural Food Colors</h1>
+<p class="sub">100% plant-based natural food pigments for sweets, cakes, drinks & bakery products.</p>
+
+<div class="products">
+  <div class="product">
+    <div class="swatch red"></div>
+    <h3>Eco Red</h3>
+    <p class="sub">From beetroot & berries</p>
+    <div class="price">₹99 / 50ml</div>
+  </div>
+
+  <div class="product">
+    <div class="swatch green"></div>
+    <h3>Eco Green</h3>
+    <p class="sub">From spinach & herbs</p>
+    <div class="price">₹99 / 50ml</div>
+  </div>
+
+  <div class="product">
+    <div class="swatch brown"></div>
+    <h3>Eco Brown</h3>
+    <p class="sub">From cocoa & coffee extract</p>
+    <div class="price">₹99 / 50ml</div>
+  </div>
+</div>
+</div>
+
+<!-- MIXER -->
+<div class="card" id="mixer">
+<h2>Live Color Mixer (Red + Green + Brown)</h2>
+<p class="sub">Adjust the sliders to preview your perfect custom shade.</p>
+
+<div class="mixer">
+  <div class="slider-row">
+    <label>Red</label>
+    <input id="redRange" type="range" min="0" max="255" value="120">
+    <span id="redVal">120</span>
+  </div>
+
+  <div class="slider-row">
+    <label>Green</label>
+    <input id="greenRange" type="range" min="0" max="255" value="120">
+    <span id="greenVal">120</span>
+  </div>
+
+  <div class="slider-row">
+    <label>Brown</label>
+    <input id="brownRange" type="range" min="0" max="255" value="120">
+    <span id="brownVal">120</span>
+  </div>
+
+  <div class="result-box">
+    <div>
+      <h3>Result Color</h3>
+      <div id="rgbCode" class="sub"></div>
+    </div>
+    <div id="resultColor" class="result-color"></div>
+  </div>
+</div>
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="card" style="margin-top:24px">
+<h2>About Eco Pigments</h2>
+<p class="sub">
+Eco Pigments is a natural food color manufacturing brand based in India. We specialize in producing chemical-free, plant-extracted food pigments that are safe for daily use. Our products are trusted by home bakers, sweet shops, bakeries, and catering services.
+</p>
+<p class="sub">
+We follow hygienic processing, eco-friendly sourcing, and strict quality control to deliver premium quality natural food colors.
+</p>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="card" style="margin-top:24px">
+<h2>Why Choose Eco Pigments?</h2>
+<ul class="feature-list sub">
+  <li>✔ 100% Natural & Plant-Based</li>
+  <li>✔ Safe for Children & Adults</li>
+  <li>✔ No Harmful Chemicals</li>
+  <li>✔ Long Shelf Life</li>
+  <li>✔ Bright, Rich & Stable Colors</li>
+  <li>✔ Suitable for Cakes, Sweets, Drinks & Ice Cream</li>
+  <li>✔ Bulk & Retail Supply Available</li>
+</ul>
+</section>
+
+<!-- USAGE -->
+<section class="card" style="margin-top:24px">
+<h2>Usage Instructions</h2>
+<p class="sub">
+Shake well before use. Add 1–2 drops at a time and mix thoroughly. Increase quantity gradually to achieve desired shade. Suitable for both hot and cold food items.
+</p>
+</section>
+
+<!-- FAQ -->
+<section class="card" style="margin-top:24px">
+<h2>Frequently Asked Questions</h2>
+<p class="sub"><b>Q:</b> Are these colors FSSAI safe? <br><b>A:</b> Yes, they are made using food-safe extraction methods.</p>
+<p class="sub"><b>Q:</b> Can I use these for cakes & cream? <br><b>A:</b> Absolutely! They work for cream, fondant, and batter.</p>
+<p class="sub"><b>Q:</b> Do you supply in bulk? <br><b>A:</b> Yes, we offer bulk and wholesale pricing.</p>
+</section>
+
+<!-- CONTACT -->
+<section class="card" id="contact" style="margin-top:24px">
+<h2>Contact & Orders</h2>
+
+<form onsubmit="return sendOrder(event)">
+  <input id="name" placeholder="Your Name" required>
+  <input id="phone" placeholder="Phone Number" required>
+  <textarea id="msg" placeholder="Your Order Details" required></textarea>
+  <br>
+  <br>
+  <button type="submit">Send Order</button>
+  <div id="status"></div>
+</form>
+</section>
+
+<footer>
+© <span id="year"></span> Eco Pigments. All rights reserved.
+</footer>
+
+</div>
+
+<script>
+const redRange=document.getElementById('redRange');
+const greenRange=document.getElementById('greenRange');
+const brownRange=document.getElementById('brownRange');
+
+const redVal=document.getElementById('redVal');
+const greenVal=document.getElementById('greenVal');
+const brownVal=document.getElementById('brownVal');
+
+const resultColor=document.getElementById('resultColor');
+const rgbCode=document.getElementById('rgbCode');
+
+function updateColor(){
+  const r=parseInt(redRange.value);
+  const g=parseInt(greenRange.value);
+  const b=parseInt(brownRange.value);
+
+  redVal.textContent=r;
+  greenVal.textContent=g;
+  brownVal.textContent=b;
+
+  const finalR=Math.min(255,r+b*0.6);
+  const finalG=Math.min(255,g+b*0.4);
+  const finalB=b;
+
+  const rgb=`rgb(${finalR},${finalG},${finalB})`;
+  resultColor.style.background=rgb;
+  rgbCode.textContent=rgb;
+}
+
+redRange.addEventListener('input',updateColor);
+greenRange.addEventListener('input',updateColor);
+brownRange.addEventListener('input',updateColor);
+
+updateColor();
+
+function sendOrder(e){
+  e.preventDefault();
+  document.getElementById('status').textContent="Opening WhatsApp...";
+  return false;
+}
+
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+
+</body>
+</html>
